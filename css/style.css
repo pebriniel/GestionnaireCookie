@@ -1,0 +1,44 @@
+
+body{
+	background-color: #fbfbfb;
+	position: relative;
+}
+
+*{
+	padding: 0;
+	margin: 0;
+}
+
+main{
+	height: 100vh;
+}
+
+.cookie{
+	position: absolute;
+	display: block;
+	width: 100%;
+	min-height: 20px;
+	bottom: 0;
+	background-color: #c3c3c3;
+}
+
+.cookie span{
+	padding: 1em;
+	float: right;
+	background-color: #b4b4b4;
+	cursor: pointer;
+}
+
+.cookie span:hover{
+	background-color: #c9c9c9;
+}
+
+.cookie span:after{
+	content: 'X';
+}
+
+.cookie p{
+	width: 100%;
+	text-align: center;
+	line-height: 3em;
+}

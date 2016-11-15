@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link type="text/css" rel="stylesheet" href="css/style.css"  />
+		<title>Gestion de message pour les cookies</title>
+		
+		<script>
+			//on attends que toute la page soit chargé
+			document.addEventListener('DOMContentLoaded', (function(){
+
+				//on vérifie si le cookie existe dans le local storage du navigateur
+				if(!JSON.parse(sessionStorage.getItem("cookie_"))){
+					//on créer une div
+					var myDiv = document.createElement("div");
+					myDiv.classList.add('cookie');
+					//on implémente tout le contenu de la div
+					myDiv.innerHTML = '<span class="closecookie"></span><p>En poursuivant votre navigation sur ce site, vous acceptez l’utilisation de Cookies pour vous proposer des publicités et réaliser des statistiques de visites.</p>';
+					//on ajoute la div au "main" de la page
+					document.querySelectorAll('main')[0].appendChild(myDiv);
+				
+
+					//on récupère l'élément dans notre document html
+					var dCookie = document.querySelectorAll('.cookie')[0];
+					//on créer l'action du click pour fermer le cookie
+					dCookie.addEventListener('click', (function(){
+						//on supprime l'élément du "main"
+						document.querySelector('main').removeChild(dCookie);
+						//on enregistre que l'utilisateur à accepter les cookies dans le local storage de son navigateur
+						sessionStorage.setItem("cookie_", true);
+					}), false);
+				}
+			}), false);
+		</script>
+	</head>
+	
+	<body>
+		<main>
+
+		</main>
+
+	</body>
+</html>
